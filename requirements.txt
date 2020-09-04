@@ -2,6 +2,7 @@ alembic
 Click
 Flask
 Jinja2
+bs4
 Mako
 MarkupSafe
 passlib
