@@ -4,9 +4,10 @@ from flask import Flask
 from kkstrade.webscrape import get_data
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime as dt
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///searches.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 
