@@ -7,7 +7,7 @@ from datetime import datetime as dt
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] =  os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 
@@ -31,7 +31,7 @@ def index():
 
 @app.route('/data')
 def data():
-	items = Search.query.all()
+	items = Search.query.order_by(Search.date.desc()).all()
 	return render_template('data.html', items=items)
 
 
