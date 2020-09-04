@@ -13,14 +13,16 @@ db = SQLAlchemy(app)
 @app.route('/')
 @app.route('/index')
 def index():
-	search = request.args.get('search').strip(' ')
-	search_test = ''.join(search.split())
+	search = request.args.get('search')
 	data=''
-	if search_test.isalnum():
-		data = get_data(search)
-		search_data_input = Search(item=search,number=len(data),date=dt.now())
-		db.session.add(search_data_input)
-		db.session.commit()
+	if search != None:
+		search = request.args.get('search').strip(' ')
+		search_test = ''.join(search.split())
+		if search_test.isalnum():
+			data = get_data(search)
+			search_data_input = Search(item=search,number=len(data),date=dt.now())
+			db.session.add(search_data_input)
+			db.session.commit()
 	return render_template('index.html', data=data)
 
 @app.route('/data')
