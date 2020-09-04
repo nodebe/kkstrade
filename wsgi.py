@@ -1,0 +1,1 @@
+from finaid7 import app
