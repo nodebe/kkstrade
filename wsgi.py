@@ -1,1 +1,1 @@
-from kkstrade import app
+from kkstrade.routes import app

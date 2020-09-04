@@ -20,9 +20,12 @@ def index():
 		search_test = ''.join(search.split())
 		if search_test.isalnum():
 			data = get_data(search)
-			search_data_input = Search(item=search,number=len(data),date=dt.now())
-			db.session.add(search_data_input)
-			db.session.commit()
+			try:
+				search_data_input = Search(item=search,number=len(data),date=dt.now())
+				db.session.add(search_data_input)
+				db.session.commit()
+			except:
+				pass
 	return render_template('index.html', data=data)
 
 @app.route('/data')
