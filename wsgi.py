@@ -1,1 +1,1 @@
-from finaid7 import app
+from kkstrade import app
