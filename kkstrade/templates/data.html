@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block body %}
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item</th>
+      <th scope="col">Amount of items returned</th>
+      <th scope="col">Date Searched</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for item in items %}
+    <tr>
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.item}}</td>
+      <td>{{item.number}}</td>
+      <td>{{item.date.strftime('%d %b, %Y %I:%M %p')}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

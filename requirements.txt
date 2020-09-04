@@ -2,6 +2,7 @@ alembic
 Click
 Flask
 Jinja2
+Flask-SQLAlchemy
 bs4
 Mako
 MarkupSafe
